@@ -49,8 +49,6 @@ void FindCombination(const std::vector<int>& vec, int sum, size_t index, std::ve
     {
         if (!Find(result, r))
             result.push_back(r);
-        if (index == vec.size())
-            return;
     }
 
     // if the array vec is sorted, here we should add condition to check if the
@@ -74,8 +72,7 @@ std::vector<std::vector<int>> CombinationSum(std::vector<int>& A, int val)
     std::vector<std::vector<int>> result;
     std::vector<int> r;
 
-    for (size_t i = 0; i < A.size(); ++i)
-        FindCombination(A, val, i, r, result);
+    FindCombination(A, val, 0, r, result);
 
     return result;
 }
